@@ -18,33 +18,33 @@
 		  <tr>
 		    <td class="c1"><a href="{{ 'http://www.allocine.fr' + film['url'] }}">{{ film['name'] }}</a></td>
 		    
-				{% if film['People Rating'][0]|length %}
-					<td class="c2">{{ film['People Rating'][0] }}</td>
-				{% else %}
+				{% if film['People Rating'][0] is not defined %}
 					<td class="c2">None</td>
+				{% else %}
+					<td class="c2">{{ film['People Rating'][0] }}</td>
 				{% endif %}
 			
 		    
-				{% if film['People Rating'][1]|length %}
-					<td class="c3">{{ film['People Rating'][1] }}</td>
-				{% else %}
+				{% if film['People Rating'][1] is not defined %}
 					<td class="c3">None</td>
+				{% else %}
+					<td class="c3">{{ film['People Rating'][1] }}</td>
 				{% endif %}
 			
-				{% if film['Media Rating'][0]|length %}
-					<td class="c4">{{ film['Media Rating'][0] }}</td>
-				{% else %}
+				{% if film['Media Rating'][0] is not defined %}
 					<td class="c4">None</td>
+				{% else %}
+					<td class="c4">{{ film['Media Rating'][0] }}</td>
 				{% endif %}
 		    
-				{% if film['Media Rating'][2]|length %}
+				{% if film['Media Rating'][2] is not defined or film['Media Rating'][2]|length==0 %}
+					<td class="c5">None</td>
+				{% else %}
 					<td class="c5">
 					{% for key in film['Media Rating'][2] %}
 						<span>{{ key }}:{{ film['Media Rating'][2][key] }}</span>
 					{% endfor %}
 					</td>
-				{% else %}
-					<td class="c5">None</td>
 				{% endif %}
 			
 		  </tr>
