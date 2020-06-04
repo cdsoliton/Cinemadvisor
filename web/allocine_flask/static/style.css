@@ -1,0 +1,48 @@
+html 
+{ 
+	font-family: sans-serif; 
+	background: #eee; 
+	padding: 5rem; 
+}
+body 
+{ 
+	max-width: 960px; 
+	margin: 0 auto; 
+	background: white; 
+}
+a 
+{ 
+	color: #377ba8; 
+}
+h1 a h2
+{ 
+	text-decoration: none; 
+	padding: 0.25rem 0.5rem; 
+}
+th, td
+{
+	text-align: center;
+}
+table, th, td
+{
+	border: 1px solid black;
+}
+table
+{
+    border: 2px solid black;
+	border-collapse: collapse;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+h1
+{
+	text-align: center;
+	font-size: 30px;
+}
+h2
+{
+	text-align: justify;
+	font-size: 20px;
+	text-indent: 5%;
+}

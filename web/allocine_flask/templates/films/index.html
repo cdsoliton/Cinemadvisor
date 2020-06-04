@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}New films and ratings{% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+	<div>
+		<table>
+		  <tr>
+			<th>Title</th>
+			<th>People rating</th>
+			<th>People rating count</th>
+			<th>Media rating</th>
+			<th>Major media ratings</th>
+	      </tr>
+		{% for film in films %}
+		  <tr>
+		    <td class="c1"><a href="{{ 'http://www.allocine.fr' + film['url'] }}">{{ film['name'] }}</a></td>
+		    
+				{% if film['People Rating'][0]|length %}
+					<td class="c2">{{ film['People Rating'][0] }}</td>
+				{% else %}
+					<td class="c2">None</td>
+				{% endif %}
+			
+		    
+				{% if film['People Rating'][1]|length %}
+					<td class="c3">{{ film['People Rating'][1] }}</td>
+				{% else %}
+					<td class="c3">None</td>
+				{% endif %}
+			
+				{% if film['Media Rating'][0]|length %}
+					<td class="c4">{{ film['Media Rating'][0] }}</td>
+				{% else %}
+					<td class="c4">None</td>
+				{% endif %}
+		    
+				{% if film['Media Rating'][2]|length %}
+					<td class="c5">
+					{% for key in film['Media Rating'][2] %}
+						<span>{{ key }}:{{ film['Media Rating'][2][key] }}</span>
+					{% endfor %}
+					</td>
+				{% else %}
+					<td class="c5">None</td>
+				{% endif %}
+			
+		  </tr>
+		{% endfor %}
+		</table>
+	</div>
+{% endblock %}
