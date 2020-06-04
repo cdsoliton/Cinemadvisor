@@ -7,9 +7,7 @@ Created on Mon Jun  1 14:14:46 2020
 
 import pymongo
 
-import click
 from flask import current_app, g
-from flask.cli import with_appcontext
 
 
 def get_mongo_client():

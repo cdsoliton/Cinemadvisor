@@ -6,9 +6,8 @@ Created on Mon Jun  1 15:06:45 2020
 """
 
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for, current_app
+    Blueprint, render_template, current_app
 )
-from werkzeug.exceptions import abort
 
 from allocine_flask.mongo_client import get_mongo_client
 

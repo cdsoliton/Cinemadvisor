@@ -30,7 +30,7 @@ class Writer:
         for film in found_films:
             existing_doc = self.db.films.find_one({"name" : film["name"]})
             if existing_doc is not None:
-                self.db.films.update_one({'_id' : existing_doc('_id')}, film)
+                self.db.films.replace_one({'_id' : existing_doc['_id']}, film, True)
             else:
                 self.db.films.insert_one(film)
                 

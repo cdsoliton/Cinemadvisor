@@ -42,8 +42,8 @@ class Crawler:
         try:
             parent_score_aggregation_dic = json.loads(parent_score_aggregation_tag.string)
             score_aggregation_dic = parent_score_aggregation_dic["aggregateRating"]
-            avg_rating_score = score_aggregation_dic["ratingValue"]
-            rating_count = score_aggregation_dic["ratingCount"]
+            avg_rating_score = float(score_aggregation_dic["ratingValue"].replace(',', '.'))
+            rating_count = float(score_aggregation_dic["ratingCount"].replace(',', '.'))
        
         except:
             return None
@@ -93,8 +93,8 @@ class Crawler:
         parent_score_aggregation_tag = soup.find(type = "application/ld+json")
         parent_score_aggregation_dic = json.loads(parent_score_aggregation_tag.string)
         score_aggregation_dic = parent_score_aggregation_dic["aggregateRating"]
-        avg_rating_score = score_aggregation_dic["ratingValue"]
-        rating_count = score_aggregation_dic["ratingCount"]
+        avg_rating_score = float(score_aggregation_dic["ratingValue"].replace(',', '.'))
+        rating_count = float(score_aggregation_dic["ratingCount"].replace(',', '.'))
         review_tags = soup.find_all(self.__is_review_tag)
         major_ratings = {}
         
@@ -116,7 +116,7 @@ class Crawler:
         note_count_tag = big_note_tag.find(class_ = "user-note-count")
         regexp = re.compile(r"(.\d+) note.*")
         
-        return note_tag.string, regexp.match(note_count_tag.string)[1]
+        return float(note_tag.string.replace(',', '.')), float(regexp.match(note_count_tag.string)[1].replace(',', '.'))
 
 
     def __is_review_url_tag(self, tag):
