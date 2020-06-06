@@ -2,11 +2,11 @@ html
 { 
 	font-family: sans-serif; 
 	background: #eee; 
-	padding: 5rem; 
+	padding: 1rem; 
 }
 body 
 { 
-	max-width: 960px; 
+	max-width: 95%; 
 	margin: 0 auto; 
 	background: white; 
 }
@@ -26,23 +26,32 @@ th, td
 table, th, td
 {
 	border: 1px solid black;
+	font-size:100%;
 }
 table
 {
-    border: 2px solid black;
+  border: 2px solid black;
 	border-collapse: collapse;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 20px;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 5%;
 }
 h1
 {
 	text-align: center;
-	font-size: 30px;
+	font-size: 200%;
 }
 h2
 {
 	text-align: justify;
-	font-size: 20px;
-	text-indent: 5%;
+	font-size: 140%;
+	text-indent: 8%;
+}
+p
+{
+	margin: 0;
+}
+th
+{
+	padding: 1%;
 }
